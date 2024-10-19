@@ -6,9 +6,8 @@ describe('Component: Input', () => {
   it('should be render without activity indicator if isLoading prop is undefined', () => {
     render(<Input />)
 
-    const activityIndicator = screen.getByTestId('activity-indicator')
+    const activityIndicator = screen.queryByTestId('activity-indicator')
 
-    console.log(activityIndicator);
-    
+    expect(activityIndicator).toBeNull()
   })
 })
