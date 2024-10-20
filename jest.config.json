@@ -6,5 +6,9 @@
   "setupFilesAfterEnv": [
     "@testing-library/react-native/extend-expect"
   ],
-  "setupFiles": ["./__tests__/mocks/libs/async-storage.js"]
+  "setupFiles": ["./__tests__/mocks/libs/async-storage.js"],
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.svg$": "jest-transformer-svg"
+  }
 }
