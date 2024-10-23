@@ -46,6 +46,6 @@ describe('Component: SelectList', () => {
 
     const options = screen.getByTestId('options')
     
-    expect(options.children.length).toHaveLength(0)
+    expect(options.children.length).toBe(0)
   })
 })
