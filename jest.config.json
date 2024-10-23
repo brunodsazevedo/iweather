@@ -8,7 +8,8 @@
   ],
   "testPathIgnorePatterns": [
     "./__tests__/mocks",
-    "./__tests__/utils"
+    "./__tests__/utils",
+    "./__tests__/coverage"
   ],
   "setupFiles": [
     "./__tests__/mocks/libs/async-storage.js",
@@ -25,7 +26,8 @@
   "coveragePathIgnorePatterns": [
     "./src/@types",
     "./src/styles",
-    "./src/libs/dayjs"
+    "./src/libs/dayjs",
+    "./__tests__/coverage"
   ],
   "coverageDirectory": "./__tests__/coverage"
 }
