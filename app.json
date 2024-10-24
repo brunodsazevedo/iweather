@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#13131A"
-      }
+      },
+      "package": "com.brunodsazevedo.iweather"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,6 +32,11 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0ecf92d6-5759-400e-9ddc-6e450659b7bf"
+      }
+    }
   }
 }
