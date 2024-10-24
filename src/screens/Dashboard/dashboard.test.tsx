@@ -7,9 +7,7 @@ import { mockWeatherAPIResponse } from "@__tests__/mocks/api/mockWeatherAPIRespo
 import { mockCityApiResponse } from "@__tests__/mocks/api/mockCityApiResponse"
 
 describe("Screens: Dashboard", () => {
-  it("should be show city weather", async () => {
-    jest.spyOn(api, 'get').mockResolvedValue({ data: mockWeatherAPIResponse })
-
+  beforeAll(async () => {
     const city = {
       id: '1',
       name: 'Rio do Sul, BR',
@@ -18,6 +16,10 @@ describe("Screens: Dashboard", () => {
     }
 
     await saveStorageCity(city)
+  })
+
+  it("should be show city weather", async () => {
+    jest.spyOn(api, 'get').mockResolvedValue({ data: mockWeatherAPIResponse })
 
     render(<Dashboard />)
 
@@ -26,15 +28,6 @@ describe("Screens: Dashboard", () => {
   })
 
   it("should be show another selected weather city.", async () => {
-    const city = {
-      id: '1',
-      name: 'Rio do Sul, BR',
-      latitude: -30.33,
-      longitude: -50.44,
-    }
-
-    await saveStorageCity(city)
-
     /*
     1 - Buscar as informações do tempo/clima da cidade selecionada.
     2 - Busca as informações da cidade.
