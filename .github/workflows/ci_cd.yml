@@ -51,5 +51,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build
-        run: eas build --platform android --profile preview --non-interactive --no-wait
+      - name: Get config file
+        env:
+          GOOGLE_SERVICE_64: ${{ secrets.EAS_GOOGLE_PLAY_API }}
+        run: |
+          echo $GOOGLE_SERVICE_64 > google-service.json.b64
+          base64 -d -i google-service.json.b64 > google-service.json
+
+      - name: Build and submit app
+        run: EXPO_APPLE_SPECIFIC_PASSWORD=${{ secrets.EAS_APPLE_SPECIFIC_PASSWORD }} eas build --platform all --profile production --non-interactive --auto-submit-with-profile=production --no-wait
